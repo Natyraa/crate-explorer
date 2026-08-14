@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html, body, #root {
+    height: 100%;
+  }
+  body {
+    @apply bg-ink text-parchment font-body antialiased;
+  }
+  ::selection {
+    @apply bg-amber/30 text-parchment;
+  }
+  :focus-visible {
+    outline: 2px solid theme('colors.amber.bright');
+    outline-offset: 2px;
+  }
+}
+
+@layer utilities {
+  .scrollbar-crate::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  .scrollbar-crate::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .scrollbar-crate::-webkit-scrollbar-thumb {
+    background-color: #2E2822;
+    border-radius: 6px;
+  }
+  .scrollbar-crate::-webkit-scrollbar-thumb:hover {
+    background-color: #3A322A;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
